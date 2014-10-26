@@ -41,7 +41,7 @@ class StdOutListener(StreamListener):
             text.replace("|","[replaced bar]")
             text.replace("\n", " ")
             #p = str(idource venv/bin/activate) + "|" + str(created_at) + "|" + str(coords[0]) + "|" + str(coords[1]) + "|" + str(text) + "\n"
-            p = str(text) + "<END OF TWEET/>\n"
+            p = str(text) + " <END OF TWEET/>\n"
             #print p
             #if len(p) > 80:
             #    print p[:79]
