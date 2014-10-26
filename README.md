@@ -15,6 +15,14 @@ Configuration
 
     alias hadoop='~/hadoop/bin/hadoop'
 
+### Environment
+    vim ~/hadoop/etc/hadoop/hadoop-env.sh
+
+    # add these environment variables below JAVA_HOME
+    export PATH=$JAVA_HOME/bin:$PATH
+    # let you could call official java compile function to compile MapReduce file
+    HADOOP_CLASSPATH=$JAVA_HOME/lib/tools.jar
+
 ### Single hadoop mode
     cd to/WordCount/folder
     cp something input/
