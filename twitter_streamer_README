@@ -1,0 +1,5 @@
+USAGE:
+1) install tweepy
+2) (if installed with virtenv) source venv/bin/activate
+3) python2.6 twitter_streamer.py
+
