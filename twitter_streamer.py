@@ -1,6 +1,7 @@
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
 from tweepy import Stream
+import tweepy
 import json
 import sys
 import datetime
@@ -39,7 +40,9 @@ class StdOutListener(StreamListener):
             text = text.encode('ascii', 'ignore').decode('ascii')
             text.replace("|","[replaced bar]")
             text.replace("\n", " ")
-            p = str(ids) + "|" + str(created_at) + "|" + str(coords[0]) + "|" + str(coords[1]) + "|" + str(text) + "\n"
+            #p = str(idource venv/bin/activate) + "|" + str(created_at) + "|" + str(coords[0]) + "|" + str(coords[1]) + "|" + str(text) + "\n"
+            p = str(text) + "<END OF TWEET/>\n"
+            #print p
             #if len(p) > 80:
             #    print p[:79]
             #else:
@@ -49,6 +52,7 @@ class StdOutListener(StreamListener):
             tweet_count += 1
             if tweet_count % 1000 == 0:
                 f.write(tmpData)
+                print "writing and flushing data"
                 f.flush()
                 tmpData = ""
                 print  str(datetime.datetime.now()) + " --- TWITTER_COUNT = " + str(tweet_count)
@@ -65,7 +69,7 @@ if __name__ == '__main__':
     l = StdOutListener()
     auth = OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
     auth.set_access_token(TOKEY_KEY, TOKEN_SECRET)
-
     stream = Stream(auth, l)
+    stream.filter(track=['#programming','#google','#android'])
     stream.sample()
     #locations=[-129.19,23.96,-64.68,50.68]
