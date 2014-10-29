@@ -14,6 +14,7 @@ Configuration
     vim ~/.bash_aliases
 
     alias hadoop='~/hadoop/bin/hadoop'
+    alias hdfs='~/hadoop/bin/hdfs'
 
 ### Environment
     vim ~/hadoop/etc/hadoop/hadoop-env.sh
@@ -29,3 +30,10 @@ Configuration
     rm -rf output
     make
     hadoop jar wc.jar WordCount input/ output
+
+### Cluster mode
+    hdfs dfs -mkdir -p /cs736/input
+    hdfs dfs -put YOURINPUTFILE /cs736/input/
+    hdfs dfs -ls /cs736/input/
+    hadoop jar wc.jar WordCount /cs736/input/ /cs736/output
+    hdfs dfs -ls /cs736/output/
