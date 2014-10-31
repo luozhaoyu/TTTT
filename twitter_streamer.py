@@ -6,16 +6,20 @@ import json
 import sys
 import datetime
 
-OUTPUT_FILE="new_tweets.txt"
-CONSUMER_SECRET="oKsGTjajzKBiFGjxVJGb7mh0RlTtLwS8TlfORTnBZlsVcKyuwz"
-CONSUMER_KEY="gc5jBYM3eC3wFFI4pLipSvvU9"
-TOKEN_SECRET="nHmgTX56HKaIFAKD3QQjHtbuaax0xGXOkeB32hS1XBBvy"
-TOKEY_KEY="2841234509-OvgVEOHCcSgo5cNuRBzU1wnQFR4gpzKg4PaXU6w"
+OUTPUT_FILE="new_tweets_time.txt"
+CONSUMER_SECRET="VnYHz2idN9Ymp52UVp390Eanj1MK6bVYJyZCtdlgBm71RsFYXt"
+CONSUMER_KEY="xt5hvmEA7AIDd5aO90HzupgSh"
+TOKEN_SECRET="cbWvnuKJb6xyGwbC8A5DBHLv6OvV1DkAtJKBxeNDA7P9G"
+TOKEY_KEY="2841234509-FLYvS0vmnZJ98NbsMfszImH4XNCFlZ5AKRGWETK"
 
 f = open(OUTPUT_FILE, "a")
 tmpData = ""
 tweet_count = 0
 class StdOutListener(StreamListener):
+    #streamG =1
+    #def setStream(self,streamx):
+    #    global streamG
+    #    streamG = streamx
     def on_data(self, data):
         global tweet_count
         global f
@@ -41,8 +45,8 @@ class StdOutListener(StreamListener):
             text.replace("|","[replaced bar]")
             text.replace("\n", " ")
             #p = str(idource venv/bin/activate) + "|" + str(created_at) + "|" + str(coords[0]) + "|" + str(coords[1]) + "|" + str(text) + "\n"
-            p = str(text) + " <END OF TWEET/>\n"
-            #print p
+            p = str(created_at)+" | "+str(text) + " <END OF TWEET/>\n"
+            #print str(tweet_count)+":::"+p
             #if len(p) > 80:
             #    print p[:79]
             #else:
@@ -50,10 +54,14 @@ class StdOutListener(StreamListener):
             tmpData = tmpData + p
             #f.write(p)
             tweet_count += 1
-            if tweet_count % 1000 == 0:
+            if tweet_count % 100 == 0:
+                print str(tweet_count)
+                #streamG.dissconnect()
                 f.write(tmpData)
                 print "writing and flushing data"
                 f.flush()
+                f.close()
+                f = open(OUTPUT_FILE, "a")
                 tmpData = ""
                 print  str(datetime.datetime.now()) + " --- TWITTER_COUNT = " + str(tweet_count)
 
@@ -69,7 +77,10 @@ if __name__ == '__main__':
     l = StdOutListener()
     auth = OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
     auth.set_access_token(TOKEY_KEY, TOKEN_SECRET)
+    print "Successfully authenticated - N.B. if 420 print then we are being rate limited"
     stream = Stream(auth, l)
-    stream.filter(track=['#programming','#google','#android'])
+    #l.setStream(stream)
+    #stream.filter(track=['#programming','#google','#android'])
     stream.sample()
+    stream.disconnect()
     #locations=[-129.19,23.96,-64.68,50.68]
