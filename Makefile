@@ -16,3 +16,4 @@ classes: $(CLASSES:.java=.class)
 clean:
 	rm -f *.class
 	rm -f wc.jar
+	rm -rf output

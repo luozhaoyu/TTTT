@@ -19,6 +19,7 @@ Configuration
 ### Environment
     vim ~/hadoop/etc/hadoop/hadoop-env.sh
 
+    export JAVA_HOME=/usr/lib/jvm/java
     # add these environment variables below JAVA_HOME
     export PATH=$JAVA_HOME/bin:$PATH
     # let you could call official java compile function to compile MapReduce file
@@ -37,3 +38,6 @@ Configuration
     hdfs dfs -ls /cs736/input/
     hadoop jar wc.jar WordCount /cs736/input/ /cs736/output
     hdfs dfs -ls /cs736/output/
+
+### Known Bugs
+* the nodemanager in slave should be started manually
