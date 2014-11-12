@@ -6,11 +6,11 @@ import json
 import sys
 import datetime
 
-OUTPUT_FILE="new_tweets_time.txt"
-CONSUMER_SECRET="VnYHz2idN9Ymp52UVp390Eanj1MK6bVYJyZCtdlgBm71RsFYXt"
-CONSUMER_KEY="xt5hvmEA7AIDd5aO90HzupgSh"
-TOKEN_SECRET="cbWvnuKJb6xyGwbC8A5DBHLv6OvV1DkAtJKBxeNDA7P9G"
-TOKEY_KEY="2841234509-FLYvS0vmnZJ98NbsMfszImH4XNCFlZ5AKRGWETK"
+OUTPUT_FILE="new_tweets_timeTech.txt"
+CONSUMER_SECRET="kZuInUJ4Z7Dsm2Bo0TZ7ZNF1LiWYxSC5yYRUgfOvetQs9OtfBK"
+CONSUMER_KEY="Q5GsUWC2dkDpHUWZHd9PdWR4J"
+TOKEN_SECRET="uXeVYIoei51gjqZSFLwB7VDKMkwejmg3x9B5cpLH5r4mQ"
+TOKEY_KEY="2841234509-LYHFtMUMYn6McbaAUZ3osjNBv3kGOKNhzPywEsL"
 
 f = open(OUTPUT_FILE, "a")
 tmpData = ""
@@ -34,8 +34,8 @@ class StdOutListener(StreamListener):
                 return
             coords = [0,0]
             created_at = tmp["created_at"]
-	    user = tmp["user"]
-	    screen_name = user["screen_name"]
+            user = tmp["user"]
+            screen_name = user["screen_name"]
             if "coordinates"  in tmp:
                 if tmp["coordinates"] != None:
                     if "coordinates" in tmp["coordinates"]:
@@ -48,7 +48,7 @@ class StdOutListener(StreamListener):
             text.replace("\n", " ")
             #p = str(idource venv/bin/activate) + "|" + str(created_at) + "|" + str(coords[0]) + "|" + str(coords[1]) + "|" + str(text) + "\n"
             p = "<"+str(screen_name)+"> | "+str(created_at)+" | "+str(text) + " <END OF TWEET>\n"
-            #print str(tweet_count)+":::"+p
+	    #print str(tweet_count)+":::"+p
             #if len(p) > 80:
             #    print p[:79]
             #else:

@@ -6,11 +6,11 @@ import json
 import sys
 import datetime
 
-OUTPUT_FILE="new_tweets_time.txt"
-CONSUMER_SECRET="VnYHz2idN9Ymp52UVp390Eanj1MK6bVYJyZCtdlgBm71RsFYXt"
-CONSUMER_KEY="xt5hvmEA7AIDd5aO90HzupgSh"
-TOKEN_SECRET="cbWvnuKJb6xyGwbC8A5DBHLv6OvV1DkAtJKBxeNDA7P9G"
-TOKEY_KEY="2841234509-FLYvS0vmnZJ98NbsMfszImH4XNCFlZ5AKRGWETK"
+OUTPUT_FILE="new_tweets_timeB.txt"
+CONSUMER_SECRET="ZK2MlkA7xmqCqzVxo21gXrWdl56Na6GtgFNBWdUUPWsPwAWUJU"
+CONSUMER_KEY="TZtTf8KBUokZwqpS0y9gzm7zM"
+TOKEN_SECRET="wqbfALgDuYZixO6IwfaJZwMcIOCStg7Cl8Dg5uOyvGWd2"
+TOKEY_KEY="2841234509-8MKVhmeay4H22n5k5IQGyuqpjijlSsZzVJiqB1f"
 
 f = open(OUTPUT_FILE, "a")
 tmpData = ""
@@ -82,7 +82,7 @@ if __name__ == '__main__':
     print "Successfully authenticated - N.B. if 420 print then we are being rate limited"
     stream = Stream(auth, l)
     #l.setStream(stream)
-    #stream.filter(track=['#programming','#google','#android'])
+    stream.filter(track=['#programming','#google','#android','#apple'])
     stream.sample()
     stream.disconnect()
     #locations=[-129.19,23.96,-64.68,50.68]
