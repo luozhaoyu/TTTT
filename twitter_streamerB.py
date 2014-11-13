@@ -82,7 +82,7 @@ if __name__ == '__main__':
     print "Successfully authenticated - N.B. if 420 print then we are being rate limited"
     stream = Stream(auth, l)
     #l.setStream(stream)
-    stream.filter(track=['#programming','#google','#android','#apple'])
+    #stream.filter(track=['#programming','#google','#android','#apple'])
     stream.sample()
     stream.disconnect()
     #locations=[-129.19,23.96,-64.68,50.68]
