@@ -33,6 +33,11 @@ Configuration
     hadoop jar wc.jar WordCount input/ output
 
 ### Cluster mode
+1. modify `hadoop/etc/hadoop/slaves` file, which would look like
+        macaroni-01.cs.wisc.edu
+        macaroni-02.cs.wisc.edu
+        macaroni-03.cs.wisc.edu
+- upload file into HDFS
     hdfs dfs -mkdir -p /cs736/input
     hdfs dfs -put YOURINPUTFILE /cs736/input/
     hdfs dfs -ls /cs736/input/
@@ -41,3 +46,4 @@ Configuration
 
 ### Known Bugs
 * the nodemanager in slave should be started manually
+* Off safemode `hadoop dfsadmin -safemode leave`

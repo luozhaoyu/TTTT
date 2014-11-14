@@ -25,6 +25,7 @@
 export JAVA_HOME=/usr/lib/jvm/java
 export PATH=$JAVA_HOME/bin:$PATH
 HADOOP_CLASSPATH=$JAVA_HOME/lib/tools.jar
+export HADOOP_LOG_DIR=/tmp/dfs/log
 
 # The jsvc implementation to use. Jsvc is required to run secure datanodes.
 #export JSVC_HOME=${JSVC_HOME}

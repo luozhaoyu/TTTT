@@ -8,4 +8,4 @@ ssh macaroni-02 "rm -rf /tmp/dfs/; mkdir -p /tmp/dfs/data"
 ssh macaroni-03 "rm -rf /tmp/dfs/; mkdir -p /tmp/dfs/data"
 ssh macaroni-04 "rm -rf /tmp/dfs/; mkdir -p /tmp/dfs/data"
 
-$HADOOP_PREFIX/bin/hdfs namenode -format tttt
+$HADOOP_PREFIX/bin/hdfs namenode -format
