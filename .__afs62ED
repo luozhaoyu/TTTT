@@ -1,2 +1,0 @@
-rm -rf output
-~/hadoop/bin/hadoop jar wc.jar WordCount input/ output

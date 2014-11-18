@@ -56,7 +56,7 @@ class StdOutListener(StreamListener):
             tmpData = tmpData + p
             #f.write(p)
             tweet_count += 1
-            if tweet_count % 100 == 0:
+            if tweet_count % 1000 == 0:
                 print str(tweet_count)
                 #streamG.dissconnect()
                 f.write(tmpData)
