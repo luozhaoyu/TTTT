@@ -22,7 +22,11 @@ public class WordCount {
 		private static HashSet<String> allowedWords = new HashSet<String>();
 		private static String networkName;
 		static {
-			String words[] = { "android", "google", "apple", "tech", "java"};
+			String words[] = { "android", "google", "apple", "tech", "java",
+					"uber", "amazon", "microsoft", "Motorola", "lenovo",
+					"dart", "golang", "java", "javascript", "C", "fortran",
+					"ada", "software", "moto360", "samsung", "htc", "dell",
+					"hp", "docker" , "vine", "twitter", "facebook", "instragram" };
 			for (String word : words)
 				allowedWords.add(word);
 			try {
@@ -59,7 +63,8 @@ public class WordCount {
 			StringBuffer word = new StringBuffer();
 			for (int i = 0; i < token.length(); i++) {
 				char c = token.charAt(i);
-				if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) {
+				if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
+						|| (c >= '0' && c <= '9')) {
 					char x = c;
 					if (c >= 'A' && c <= 'Z') {
 						x = (char) (c - ('A' - 'a'));

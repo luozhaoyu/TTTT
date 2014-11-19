@@ -46,6 +46,7 @@ class StdOutListener(StreamListener):
             text = text.encode('ascii', 'ignore').decode('ascii')
             text.replace("|","[replaced bar]")
             text.replace("\n", " ")
+            text.replace("\r", " ")
             #p = str(idource venv/bin/activate) + "|" + str(created_at) + "|" + str(coords[0]) + "|" + str(coords[1]) + "|" + str(text) + "\n"
             p = "<"+str(screen_name)+"> | "+str(created_at)+" | "+str(text) + " <END OF TWEET>\n"
 	    #print str(tweet_count)+":::"+p
