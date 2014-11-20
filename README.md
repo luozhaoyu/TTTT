@@ -38,11 +38,18 @@ Configuration
         macaroni-02.cs.wisc.edu
         macaroni-03.cs.wisc.edu
 - upload file into HDFS
+
     hdfs dfs -mkdir -p /cs736/input
     hdfs dfs -put YOURINPUTFILE /cs736/input/
     hdfs dfs -ls /cs736/input/
     hadoop jar wc.jar WordCount /cs736/input/ /cs736/output
     hdfs dfs -ls /cs736/output/
+
+#### Using fabric
+1. Be sure you have configured the right machines in fab file
+- `fab init`
+- `fab start`
+- `hdfs dfs -ls /`
 
 ### Known Bugs
 * the nodemanager in slave should be started manually
