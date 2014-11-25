@@ -1,0 +1,9 @@
+MACHINES = {
+    'master': ['macaroni-05'],
+    'slave': [
+        'macaroni-01',
+        'macaroni-02',
+        'macaroni-03',
+        'macaroni-04',
+    ]
+    }

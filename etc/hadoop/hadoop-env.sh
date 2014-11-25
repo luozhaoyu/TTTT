@@ -22,7 +22,9 @@
 # remote nodes.
 
 # The java implementation to use.
-export JAVA_HOME=/usr/lib/jvm/java
+#export JAVA_HOME=/usr/lib/jvm/java
+export JAVA_HOME=/usr/lib/jvm/java-1.7.0
+
 export PATH=$JAVA_HOME/bin:$PATH
 HADOOP_CLASSPATH=$JAVA_HOME/lib/tools.jar
 export HADOOP_LOG_DIR=/tmp/dfs/log

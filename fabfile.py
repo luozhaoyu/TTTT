@@ -7,16 +7,13 @@
     A brief description goes here.
 """
 from fabric.api import run, env, roles, execute
+try:
+    from config import MACHINES
+except ImportError as e:
+    print "You should cp config.py.sample config.py, and modify it then"
+    raise e
 
-env.roledefs = {
-    'master': ['macaroni-05'],
-    'slave': [
-        #'macaroni-01',
-        #'macaroni-02',
-        'macaroni-03',
-        #'macaroni-04',
-    ]
-    }
+env.roledefs = MACHINES
 
 @roles('master')
 def init_master():
