@@ -11,7 +11,8 @@ import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import org.apache.hadoop.mapred.Counters;
+import org.apache.hadoop.mapreduce.Counter;
+
 import java.net.InetAddress;
 import java.util.HashSet;
 
@@ -26,7 +27,7 @@ public class WordCount {
 					"uber", "amazon", "microsoft", "Motorola", "lenovo",
 					"dart", "golang", "java", "javascript", "C", "fortran",
 					"ada", "software", "moto360", "samsung", "htc", "dell",
-					"hp", "docker" , "vine", "twitter", "facebook", "instragram" };
+					"hp", "docker", "vine", "twitter", "facebook", "instragram" };
 			for (String word : words)
 				allowedWords.add(word);
 			try {
@@ -40,15 +41,38 @@ public class WordCount {
 				throws IOException, InterruptedException {
 			context.getCounter("MapCount", networkName).increment(1);
 			long start = System.currentTimeMillis();
+//			System.out.println(value.toString());
+			String line = value.toString();
+			if(line.contains("<END OF TWEET")){
+				context.getCounter("MapLineCount", networkName).increment(1);
+			}
+			String day;
+			try{
+			int startOfDate = line.indexOf("| ")+1;
+			String date = line.substring(startOfDate,line.indexOf(" |",startOfDate+1));
+			int indexOf1stSpace = date.indexOf(" ",1);
+			int io2s = date.indexOf(" ",indexOf1stSpace+1);
+			int io3s = date.indexOf(" ",io2s+1);
+			day = date.substring(1,io3s);
+			} catch(IndexOutOfBoundsException e){
+				System.err.println("unable to retrieve day from "+line);
+				return;
+			}
+			context.getCounter("MapCount", networkName).increment(1);
 			StringTokenizer itr = new StringTokenizer(value.toString());
+			Counter counter = context.getCounter("TotalWordCount",day);
+			int count =0;
 			while (itr.hasMoreTokens()) {
 				// String token = itr.nextToken();
 				String token = stripNonAlphabeticalChars(itr.nextToken());
 				if (allowedWords.contains(token)) {
-					word.set(token);
+					word.set(day+": "+token);
 					context.write(word, one);
+					context.getCounter("TotalTechWordCount",day).increment(1);
 				}
+				count++;
 			}
+			counter.increment(count);
 			// Counters counters = new Counters();
 			// Counters.Counter mapDurationCounter =
 			// counters.findCounter("group",
@@ -78,6 +102,13 @@ public class WordCount {
 
 	public static class IntSumReducer extends
 			Reducer<Text, IntWritable, Text, IntWritable> {
+		private static String networkName;
+		static {
+			try {
+				networkName = InetAddress.getLocalHost().getHostName();
+			} catch (Exception e) {
+			}
+		}
 		private IntWritable result = new IntWritable();
 
 		public void reduce(Text key, Iterable<IntWritable> values,
