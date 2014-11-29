@@ -1,0 +1,3 @@
+~/hadoop/bin/hdfs dfs -mkdir -p /cs736/input
+~/hadoop/bin/hdfs dfs -put  ~/tweets/*_FIXED* /cs736/input
+~/hadoop/bin/hdfs dfs -ls /cs736/input

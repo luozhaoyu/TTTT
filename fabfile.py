@@ -14,6 +14,15 @@ except ImportError as e:
     raise e
 
 env.roledefs = MACHINES
+#env.roledefs = {
+#    'master': ['adelie-05'],
+#    'slave': [
+#        #'macaroni-01',
+#        'adelie-02',
+#        'adelie-03'
+#        #'macaroni-04',
+#    ]
+#    }
 
 @roles('master')
 def init_master():

@@ -1,0 +1,2 @@
+python outputSlaves.py > ~/hadoop/etc/hadoop/slaves
+echo wrote to slaves file

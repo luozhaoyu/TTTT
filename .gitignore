@@ -3,6 +3,7 @@
 *.txt
 *.swp
 *_FIXED*
+*.__
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 

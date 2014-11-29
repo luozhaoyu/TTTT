@@ -73,6 +73,8 @@ public class WordCount {
 				count++;
 			}
 			counter.increment(count);
+			context.getCounter("MapDuration", networkName).increment(
+					System.currentTimeMillis() - start);
 			// Counters counters = new Counters();
 			// Counters.Counter mapDurationCounter =
 			// counters.findCounter("group",

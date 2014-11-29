@@ -1,3 +1,8 @@
 rm -rf output
-~/hadoop/bin/hadoop jar wc.jar WordCount input/ output
-cat output/part-r-00000
+~/hadoop/bin/hdfs dfs -rmr /cs736/output
+echo output removed, running hadoop on hdfs
+echo outputting stats to results$1Nodes
+rm -f results$1Nodes
+~/hadoop/bin/hadoop jar wc.jar WordCount /cs736/input/ /cs736/output > results$1Nodes 2>&1
+#~hdfs dfs -get /cs736/output/part-r-00000
+#cat part-r-00000
