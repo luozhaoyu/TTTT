@@ -89,7 +89,7 @@ Check cluster status
 
 ##### Add nodes
 
-Assuming `macaroni-01` is the only slave currently, and we will add `macaroni-02`.
+Assuming `macaroni-01` is the only slave currently, and we will add *macaroni-02 macaroni-03*.
 And `macaroni-05` is the master
 
 1. `fab stop`: stop all nodes.
@@ -107,6 +107,7 @@ And `macaroni-05` is the master
 - `fab init` (Attention, **never reinitialize** your master!)
 - uncomment the machines in the `config.py`
 - `fab start`
+    * then fabric would say something like *No hosts found. Please specify (single) host string for connection:*. Just type in an arbitrary **new slave** hostname, in this case: macaroni-03. (It is a hack)
 
 `hadoop/etc/hadoop/slaves` seems to be **irrelevant** with specifying the slave nodes.
 However, you have to modify it if you do not use fabric.
