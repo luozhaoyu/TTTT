@@ -11,7 +11,6 @@ Configuration
         virtualenv ~/venv
         pip install tweepy fabric
         source ~/venv/bin/activate
-
 - install hadoop
 
         cd ~
@@ -19,13 +18,12 @@ Configuration
         mv hadoop-2.5.1 hadoop
         git clone TTTTREPO
         cp -r TTTTREPO/etc
-
 - install dstat
 
-    cd ~
-    wget -c http://dag.wieers.com/home-made/dstat/dstat-0.7.2.tar.bz2
-    tar jxvf dstat-0.7.2.tar.bz2
-    cp dstat-0.7.2.tar.bz2/dstat ~
+        cd ~
+        wget -c http://dag.wieers.com/home-made/dstat/dstat-0.7.2.tar.bz2
+        tar jxvf dstat-0.7.2.tar.bz2
+        cp dstat-0.7.2.tar.bz2/dstat ~
 
 ### Quick alias
     vim ~/.bash_aliases
@@ -55,10 +53,10 @@ Configuration
 
 ### Cluster mode
 1. modify `hadoop/etc/hadoop/slaves` file, which would look like
-        macaroni-01.cs.wisc.edu
-        macaroni-02.cs.wisc.edu
-        macaroni-03.cs.wisc.edu
 
+            macaroni-01.cs.wisc.edu
+            macaroni-02.cs.wisc.edu
+            macaroni-03.cs.wisc.edu
 - upload file into HDFS
 
         hdfs dfs -mkdir -p /cs736/input
@@ -79,7 +77,6 @@ Check cluster status
         cp config.py.sample config.py
         vim config.py
         EDITYOURMASTERSANDSLAVES
-
 - `fab init`
 - `fab start`
 - `hdfs dfs -ls /`
@@ -107,7 +104,7 @@ And `macaroni-05` is the master
                 'macaroni-03',
             ]
             }
-- `fab init` (Attention, **never reinitialize** your master again!)
+- `fab init` (Attention, **never reinitialize** your master!)
 - uncomment the machines in the `config.py`
 - `fab start`
 
