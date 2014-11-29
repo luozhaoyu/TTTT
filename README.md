@@ -8,9 +8,9 @@ Configuration
 ### Install
 1. install virtual environments
 
-    virtualenv ~/venv
-    pip install tweepy fabric
-    source ~/venv/bin/activate
+        virtualenv ~/venv
+        pip install tweepy fabric
+        source ~/venv/bin/activate
 
 - install hadoop
 
@@ -19,6 +19,13 @@ Configuration
         mv hadoop-2.5.1 hadoop
         git clone TTTTREPO
         cp -r TTTTREPO/etc
+
+- install dstat
+
+    cd ~
+    wget -c http://dag.wieers.com/home-made/dstat/dstat-0.7.2.tar.bz2
+    tar jxvf dstat-0.7.2.tar.bz2
+    cp dstat-0.7.2.tar.bz2/dstat ~
 
 ### Quick alias
     vim ~/.bash_aliases
@@ -60,6 +67,12 @@ Configuration
         hadoop jar wc.jar WordCount /cs736/input/ /cs736/output
         hdfs dfs -ls /cs736/output/
 
+Check cluster status
+* <http://macaroni-05.cs.wisc.edu:50070/>
+    * [HDFS files] (http://macaroni-05.cs.wisc.edu:50070/explorer.html#/)
+* <http://macaroni-05.cs.wisc.edu:8088/>
+
+
 #### Using fabric
 1. Configure the master and slaves
 
@@ -76,6 +89,30 @@ Configuration
 
 ##### Restart hadoop
 * `fab restart`
+
+##### Add nodes
+
+Assuming `macaroni-01` is the only slave currently, and we will add `macaroni-02`.
+And `macaroni-05` is the master
+
+1. `fab stop`: stop all nodes.
+- modify your `config.py` like:
+
+        MACHINES = {
+            #'master': [macaroni-05],
+            'master': [],
+            'slave': [
+                #'macaroni-01',
+                'macaroni-02',
+                'macaroni-03',
+            ]
+            }
+- `fab init` (Attention, **never reinitialize** your master again!)
+- uncomment the machines in the `config.py`
+- `fab start`
+
+`hadoop/etc/hadoop/slaves` seems to be **irrelevant** with specifying the slave nodes.
+However, you have to modify it if you do not use fabric.
 
 ### Known Bugs
 * the nodemanager in slave should be started manually

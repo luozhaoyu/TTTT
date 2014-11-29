@@ -14,7 +14,7 @@ class StdOutListener(StreamListener):
     #    streamG = streamx
     def __init__(self, output_file):
         StreamListener.__init__(self)
-        self.output_file = output_file
+        self.output_file = "%s.%s.txt" % (output_file, datetime.date.today().isoformat())
         self.tmpData = ""
         self.tweet_count = 0
 
