@@ -6,9 +6,14 @@
 
     A brief description goes here.
 """
+from subprocess import check_call
 from fabric.api import run, env, roles, execute
+from fabric.api import local, settings
+
+
 try:
     from config import MACHINES
+    from config import COUNT
 except ImportError as e:
     print "You should cp config.py.sample config.py, and modify it then"
     raise e
@@ -42,14 +47,18 @@ def init_slaves():
 def init():
     execute(init_master)
     execute(init_slaves)
+    with settings(warn_only=True):
+        local("mkdir ~/dstats")
 
 
 def start():
     execute(start_master)
     execute(start_slaves)
+    execute(start_dstat)
 
 
 def stop():
+    execute(stop_dstat)
     execute(stop_slaves)
     execute(stop_master)
 
@@ -85,6 +94,17 @@ def start_slaves():
 def stop_slaves():
     run("/tmp/dfs/hadoop/sbin/hadoop-daemon.sh --config /tmp/dfs/hadoop/etc/hadoop/ stop datanode")
     run("/tmp/dfs/hadoop/sbin/yarn-daemon.sh --config /tmp/dfs/hadoop/etc/hadoop/ stop nodemanager")
+
+
+@roles('slave', 'master')
+def start_dstat(count=COUNT):
+    check_call("ssh -f %s nohup ~/dstat -ta --output ~/dstats/%s.csv 1 %i >& /dev/null < /dev/null &"
+        % (env.host_string, env.host_string, count), shell=True)
+
+
+@roles('slave', 'master')
+def stop_dstat(count=COUNT):
+    run("pkill -f dstat", warn_only=True)
 
 
 def main(argv):

@@ -1,3 +1,4 @@
+COUNT = 3600
 MACHINES = {
     'master': ['macaroni-05'],
     'slave': [
