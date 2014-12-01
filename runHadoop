@@ -4,5 +4,6 @@ echo output removed, running hadoop on hdfs
 echo outputting stats to results$1Nodes
 rm -f results$1Nodes
 ~/hadoop/bin/hadoop jar wc.jar WordCount /cs736/input/ /cs736/output > results$1Nodes 2>&1
+cat results$1Nodes
 #~hdfs dfs -get /cs736/output/part-r-00000
 #cat part-r-00000

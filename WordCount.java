@@ -15,7 +15,7 @@ import org.apache.hadoop.mapreduce.Counter;
 
 import java.net.InetAddress;
 import java.util.HashSet;
-
+// Based on http://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html 
 public class WordCount {
 	public static class TokenizerMapper extends
 			Mapper<Object, Text, Text, IntWritable> {

@@ -1,0 +1,1 @@
+hdfs dfs -put ~/tweets/new_tweets_time.txt.2014-11-29.txt_FIXED /cs736/input

@@ -1,0 +1,207 @@
+14/11/30 15:49:33 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+14/11/30 15:49:33 INFO client.RMProxy: Connecting to ResourceManager at adelie-05.cs.wisc.edu/128.105.112.48:8032
+14/11/30 15:49:34 WARN mapreduce.JobSubmitter: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+14/11/30 15:49:34 INFO input.FileInputFormat: Total input paths to process : 4
+14/11/30 15:49:34 INFO mapreduce.JobSubmitter: number of splits:93
+14/11/30 15:49:34 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1417383849068_0001
+14/11/30 15:49:35 INFO impl.YarnClientImpl: Submitted application application_1417383849068_0001
+14/11/30 15:49:35 INFO mapreduce.Job: The url to track the job: http://adelie-05.cs.wisc.edu:8088/proxy/application_1417383849068_0001/
+14/11/30 15:49:35 INFO mapreduce.Job: Running job: job_1417383849068_0001
+14/11/30 15:49:41 INFO mapreduce.Job: Job job_1417383849068_0001 running in uber mode : false
+14/11/30 15:49:41 INFO mapreduce.Job:  map 0% reduce 0%
+14/11/30 15:49:49 INFO mapreduce.Job:  map 1% reduce 0%
+14/11/30 15:49:50 INFO mapreduce.Job:  map 2% reduce 0%
+14/11/30 15:49:51 INFO mapreduce.Job:  map 12% reduce 0%
+14/11/30 15:49:52 INFO mapreduce.Job:  map 14% reduce 0%
+14/11/30 15:49:53 INFO mapreduce.Job:  map 22% reduce 0%
+14/11/30 15:49:54 INFO mapreduce.Job:  map 28% reduce 0%
+14/11/30 15:49:55 INFO mapreduce.Job:  map 39% reduce 0%
+14/11/30 15:49:56 INFO mapreduce.Job:  map 51% reduce 0%
+14/11/30 15:49:57 INFO mapreduce.Job:  map 56% reduce 0%
+14/11/30 15:49:58 INFO mapreduce.Job:  map 67% reduce 0%
+14/11/30 15:49:59 INFO mapreduce.Job:  map 77% reduce 0%
+14/11/30 15:50:00 INFO mapreduce.Job:  map 83% reduce 0%
+14/11/30 15:50:01 INFO mapreduce.Job:  map 92% reduce 22%
+14/11/30 15:50:02 INFO mapreduce.Job:  map 95% reduce 22%
+14/11/30 15:50:04 INFO mapreduce.Job:  map 97% reduce 30%
+14/11/30 15:50:05 INFO mapreduce.Job:  map 98% reduce 30%
+14/11/30 15:50:06 INFO mapreduce.Job:  map 99% reduce 30%
+14/11/30 15:50:07 INFO mapreduce.Job:  map 99% reduce 32%
+14/11/30 15:50:10 INFO mapreduce.Job:  map 99% reduce 33%
+14/11/30 15:50:16 INFO mapreduce.Job:  map 100% reduce 33%
+14/11/30 15:50:19 INFO mapreduce.Job:  map 100% reduce 100%
+14/11/30 15:50:19 INFO mapreduce.Job: Job job_1417383849068_0001 completed successfully
+14/11/30 15:50:19 INFO mapreduce.Job: Counters: 160
+	File System Counters
+		FILE: Number of bytes read=71678
+		FILE: Number of bytes written=9238718
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=12241334131
+		HDFS: Number of bytes written=6584
+		HDFS: Number of read operations=282
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+	Job Counters 
+		Killed map tasks=1
+		Launched map tasks=94
+		Launched reduce tasks=1
+		Data-local map tasks=65
+		Rack-local map tasks=29
+		Total time spent by all maps in occupied slots (ms)=1408908
+		Total time spent by all reduces in occupied slots (ms)=25175
+		Total time spent by all map tasks (ms)=1408908
+		Total time spent by all reduce tasks (ms)=25175
+		Total vcore-seconds taken by all map tasks=1408908
+		Total vcore-seconds taken by all reduce tasks=25175
+		Total megabyte-seconds taken by all map tasks=1442721792
+		Total megabyte-seconds taken by all reduce tasks=25779200
+	Map-Reduce Framework
+		Map input records=99297257
+		Map output records=623250
+		Map output bytes=13606760
+		Map output materialized bytes=72230
+		Input split bytes=12883
+		Combine input records=623250
+		Combine output records=2918
+		Reduce input groups=293
+		Reduce shuffle bytes=72230
+		Reduce input records=2918
+		Reduce output records=293
+		Spilled Records=5836
+		Shuffled Maps =93
+		Failed Shuffles=0
+		Merged Map outputs=93
+		GC time elapsed (ms)=25873
+		CPU time spent (ms)=520780
+		Physical memory (bytes) snapshot=25257062400
+		Virtual memory (bytes) snapshot=88821137408
+		Total committed heap usage (bytes)=19594215424
+	MapCount
+		adelie-01.cs.wisc.edu=13319124
+		adelie-03.cs.wisc.edu=17405072
+		adelie-06.cs.wisc.edu=4617826
+		galapagos-04.cs.wisc.edu=13631438
+		galapagos-07.cs.wisc.edu=17341912
+		galapagos-12.cs.wisc.edu=8792548
+		galapagos-16.cs.wisc.edu=15117935
+		galapagos-20.cs.wisc.edu=13283626
+		galapagos-23.cs.wisc.edu=7614290
+		galapagos-26.cs.wisc.edu=6505022
+		galapagos-30.cs.wisc.edu=6385420
+		galapagos-31.cs.wisc.edu=8765227
+		galapagos-32.cs.wisc.edu=6573594
+		galapagos-36.cs.wisc.edu=12834674
+		macaroni-04.cs.wisc.edu=15335818
+		macaroni-06.cs.wisc.edu=15268981
+		macaroni-07.cs.wisc.edu=15801968
+	MapDuration
+		adelie-01.cs.wisc.edu=27798
+		adelie-03.cs.wisc.edu=41906
+		adelie-06.cs.wisc.edu=6795
+		galapagos-04.cs.wisc.edu=32784
+		galapagos-07.cs.wisc.edu=53511
+		galapagos-12.cs.wisc.edu=17235
+		galapagos-16.cs.wisc.edu=34052
+		galapagos-20.cs.wisc.edu=27554
+		galapagos-23.cs.wisc.edu=13414
+		galapagos-26.cs.wisc.edu=10321
+		galapagos-30.cs.wisc.edu=10177
+		galapagos-31.cs.wisc.edu=15792
+		galapagos-32.cs.wisc.edu=10585
+		galapagos-36.cs.wisc.edu=27810
+		macaroni-04.cs.wisc.edu=33153
+		macaroni-06.cs.wisc.edu=32984
+		macaroni-07.cs.wisc.edu=39400
+	MapLineCount
+		adelie-01.cs.wisc.edu=6659562
+		adelie-03.cs.wisc.edu=8702543
+		adelie-06.cs.wisc.edu=2308913
+		galapagos-04.cs.wisc.edu=6815717
+		galapagos-07.cs.wisc.edu=8670959
+		galapagos-12.cs.wisc.edu=4396274
+		galapagos-16.cs.wisc.edu=7558968
+		galapagos-20.cs.wisc.edu=6641813
+		galapagos-23.cs.wisc.edu=3807145
+		galapagos-26.cs.wisc.edu=3252511
+		galapagos-30.cs.wisc.edu=3192710
+		galapagos-31.cs.wisc.edu=4382614
+		galapagos-32.cs.wisc.edu=3286797
+		galapagos-36.cs.wisc.edu=6417337
+		macaroni-04.cs.wisc.edu=7667909
+		macaroni-06.cs.wisc.edu=7634499
+		macaroni-07.cs.wisc.edu=7900983
+	ReduceCount
+		adelie-01.cs.wisc.edu=146
+		adelie-03.cs.wisc.edu=292
+		adelie-06.cs.wisc.edu=343
+		galapagos-04.cs.wisc.edu=178
+		galapagos-07.cs.wisc.edu=329
+		galapagos-12.cs.wisc.edu=109
+		galapagos-16.cs.wisc.edu=199
+		galapagos-20.cs.wisc.edu=162
+		galapagos-23.cs.wisc.edu=111
+		galapagos-26.cs.wisc.edu=90
+		galapagos-30.cs.wisc.edu=116
+		galapagos-31.cs.wisc.edu=123
+		galapagos-32.cs.wisc.edu=86
+		galapagos-36.cs.wisc.edu=230
+		macaroni-04.cs.wisc.edu=196
+		macaroni-06.cs.wisc.edu=212
+		macaroni-07.cs.wisc.edu=289
+	ReduceDuration
+		adelie-01.cs.wisc.edu=278
+		adelie-03.cs.wisc.edu=546
+		adelie-06.cs.wisc.edu=114
+		galapagos-04.cs.wisc.edu=321
+		galapagos-07.cs.wisc.edu=559
+		galapagos-12.cs.wisc.edu=233
+		galapagos-16.cs.wisc.edu=459
+		galapagos-20.cs.wisc.edu=307
+		galapagos-23.cs.wisc.edu=172
+		galapagos-26.cs.wisc.edu=115
+		galapagos-30.cs.wisc.edu=139
+		galapagos-31.cs.wisc.edu=203
+		galapagos-32.cs.wisc.edu=115
+		galapagos-36.cs.wisc.edu=306
+		macaroni-04.cs.wisc.edu=487
+		macaroni-06.cs.wisc.edu=338
+		macaroni-07.cs.wisc.edu=358
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	TotalTechWordCount
+		Fri Nov 14=22275
+		Fri Nov 21=56119
+		Mon Nov 17=2892
+		Mon Nov 24=101281
+		Sat Nov 15=528
+		Sat Nov 22=103353
+		Sun Nov 23=106799
+		Thu Nov 13=59682
+		Thu Nov 20=16258
+		Tue Nov 18=43777
+		Tue Nov 25=92967
+		Wed Nov 19=17319
+	TotalWordCount
+		Fri Nov 14=63884723
+		Fri Nov 21=188674779
+		Mon Nov 17=7838438
+		Mon Nov 24=349935981
+		Sat Nov 15=1854964
+		Sat Nov 22=331033618
+		Sun Nov 23=343899429
+		Thu Nov 13=178321131
+		Thu Nov 20=58215162
+		Tue Nov 18=138238376
+		Tue Nov 25=277807648
+		Wed Nov 19=54568860
+	File Input Format Counters 
+		Bytes Read=12241321248
+	File Output Format Counters 
+		Bytes Written=6584

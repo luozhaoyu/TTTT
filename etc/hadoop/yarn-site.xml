@@ -22,7 +22,7 @@
 
 <property>
     <name>yarn.resourcemanager.hostname</name>
-    <value>macaroni-05.cs.wisc.edu</value>
+    <value>adelie-05.cs.wisc.edu</value>
 </property>
 
 </configuration>

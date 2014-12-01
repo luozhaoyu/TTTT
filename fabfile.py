@@ -44,6 +44,7 @@ def init_slaves():
     run("cp -r ~/hadoop /tmp/dfs/")
 
 
+#if the master is also a slave - wont this negate the init_master?
 def init():
     execute(init_master)
     execute(init_slaves)

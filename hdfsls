@@ -1,0 +1,2 @@
+~/hadoop/bin/hdfs dfs -ls /cs736/input
+

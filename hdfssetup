@@ -1,3 +1,19 @@
 ~/hadoop/bin/hdfs dfs -mkdir -p /cs736/input
-~/hadoop/bin/hdfs dfs -put  ~/tweets/*_FIXED* /cs736/input
+echo $( date +%T ) >> hdfsSetupTime$1 
+echo $( date +%T ) 
+for f in ~/tweets/test/*_FIXED*
+   do
+       echo "adding $f"
+       ~/hadoop/bin/hdfs dfs -put $f /cs736/input
+   done
+echo $( date +%T ) >>hdfsSetupTime$1
+echo $( date +%T )
+#~/hadoop/bin/hdfs dfs -put  ~/tweets/new_tweets_timeA.txt_FIXED /cs736/input
+#~/hadoop/bin/hdfs dfs -put  ~/tweets/new_tweets_timeA.txt.2014-11-29.txt_FIXED /cs736/input
+#~/hadoop/bin/hdfs dfs -put  ~/tweets/new_tweets_timeB.txt_FIXED /cs736/input
+#~/hadoop/bin/hdfs dfs -put  ~/tweets/new_tweets_timeB.txt.2014-11-29.txt_FIXED /cs736/input
+#~/hadoop/bin/hdfs dfs -put  ~/tweets/new_tweets_timeTech.txt_FIXED /cs736/input
+#~/hadoop/bin/hdfs dfs -put  ~/tweets/new_tweets_timeTech.txt.2014-11-29.txt_FIXED /cs736/input
+#~/hadoop/bin/hdfs dfs -put  ~/tweets/new_tweets_time.txt_FIXED /cs736/input
+#~/hadoop/bin/hdfs dfs -put  ~/tweets/new_tweets_time.txt.2014-11-29.txt_FIXED /cs736/input
 ~/hadoop/bin/hdfs dfs -ls /cs736/input

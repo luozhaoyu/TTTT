@@ -1,0 +1,109 @@
+14/11/29 23:24:13 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+14/11/29 23:24:13 INFO client.RMProxy: Connecting to ResourceManager at adelie-05.cs.wisc.edu/128.105.112.48:8032
+14/11/29 23:24:13 WARN mapreduce.JobSubmitter: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+14/11/29 23:24:14 INFO input.FileInputFormat: Total input paths to process : 4
+14/11/29 23:24:14 INFO mapreduce.JobSubmitter: number of splits:93
+14/11/29 23:24:14 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1417323138581_0002
+14/11/29 23:24:14 INFO impl.YarnClientImpl: Submitted application application_1417323138581_0002
+14/11/29 23:24:14 INFO mapreduce.Job: The url to track the job: http://adelie-05.cs.wisc.edu:8088/proxy/application_1417323138581_0002/
+14/11/29 23:24:14 INFO mapreduce.Job: Running job: job_1417323138581_0002
+14/11/29 23:24:18 INFO mapreduce.Job: Job job_1417323138581_0002 running in uber mode : false
+14/11/29 23:24:18 INFO mapreduce.Job:  map 0% reduce 0%
+14/11/29 23:24:27 INFO mapreduce.Job:  map 12% reduce 0%
+14/11/29 23:24:28 INFO mapreduce.Job:  map 23% reduce 0%
+14/11/29 23:24:29 INFO mapreduce.Job:  map 27% reduce 0%
+14/11/29 23:24:30 INFO mapreduce.Job:  map 31% reduce 0%
+14/11/29 23:24:32 INFO mapreduce.Job:  map 35% reduce 0%
+14/11/29 23:24:33 INFO mapreduce.Job:  map 42% reduce 0%
+14/11/29 23:24:34 INFO mapreduce.Job:  map 48% reduce 0%
+14/11/29 23:24:35 INFO mapreduce.Job:  map 51% reduce 0%
+14/11/29 23:24:36 INFO mapreduce.Job:  map 57% reduce 10%
+14/11/29 23:24:37 INFO mapreduce.Job:  map 64% reduce 10%
+14/11/29 23:24:38 INFO mapreduce.Job:  map 72% reduce 10%
+14/11/29 23:24:39 INFO mapreduce.Job:  map 80% reduce 16%
+14/11/29 23:24:40 INFO mapreduce.Job:  map 90% reduce 16%
+14/11/29 23:24:42 INFO mapreduce.Job:  map 96% reduce 16%
+14/11/29 23:24:43 INFO mapreduce.Job:  map 100% reduce 29%
+14/11/29 23:24:44 INFO ipc.Client: Retrying connect to server: galapagos-27.cs.wisc.edu/128.105.112.127:48795. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=3, sleepTime=1000 MILLISECONDS)
+14/11/29 23:24:45 INFO ipc.Client: Retrying connect to server: galapagos-27.cs.wisc.edu/128.105.112.127:48795. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=3, sleepTime=1000 MILLISECONDS)
+14/11/29 23:24:46 INFO ipc.Client: Retrying connect to server: galapagos-27.cs.wisc.edu/128.105.112.127:48795. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=3, sleepTime=1000 MILLISECONDS)
+14/11/29 23:24:48 INFO mapred.ClientServiceDelegate: Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+14/11/29 23:24:49 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:24:50 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:24:51 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:24:52 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:24:53 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 4 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:24:54 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 5 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:24:55 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 6 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:24:56 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 7 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:24:57 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 8 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:24:58 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 9 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:24:58 INFO mapred.ClientServiceDelegate: Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+14/11/29 23:24:59 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:25:00 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:25:01 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:25:02 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:25:03 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 4 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:25:04 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 5 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:25:05 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 6 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:25:06 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 7 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:25:07 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 8 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:25:08 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 9 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:25:08 INFO mapred.ClientServiceDelegate: Application state is completed. FinalApplicationStatus=SUCCEEDED. Redirecting to job history server
+14/11/29 23:25:09 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 0 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:25:10 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 1 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:25:11 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 2 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:25:12 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 3 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:25:13 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 4 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:25:14 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 5 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:25:15 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 6 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:25:16 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 7 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:25:17 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 8 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+14/11/29 23:25:18 INFO ipc.Client: Retrying connect to server: 0.0.0.0/0.0.0.0:10020. Already tried 9 time(s); retry policy is RetryUpToMaximumCountWithFixedSleep(maxRetries=10, sleepTime=1000 MILLISECONDS)
+Exception in thread "main" java.io.IOException: java.net.ConnectException: Call From adelie-07.cs.wisc.edu/128.105.112.50 to 0.0.0.0:10020 failed on connection exception: java.net.ConnectException: Connection refused; For more details see:  http://wiki.apache.org/hadoop/ConnectionRefused
+	at org.apache.hadoop.mapred.ClientServiceDelegate.invoke(ClientServiceDelegate.java:334)
+	at org.apache.hadoop.mapred.ClientServiceDelegate.getTaskCompletionEvents(ClientServiceDelegate.java:386)
+	at org.apache.hadoop.mapred.YARNRunner.getTaskCompletionEvents(YARNRunner.java:539)
+	at org.apache.hadoop.mapreduce.Job$5.run(Job.java:668)
+	at org.apache.hadoop.mapreduce.Job$5.run(Job.java:665)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:415)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1614)
+	at org.apache.hadoop.mapreduce.Job.getTaskCompletionEvents(Job.java:665)
+	at org.apache.hadoop.mapreduce.Job.monitorAndPrintJob(Job.java:1366)
+	at org.apache.hadoop.mapreduce.Job.waitForCompletion(Job.java:1306)
+	at WordCount.main(WordCount.java:147)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:212)
+Caused by: java.net.ConnectException: Call From adelie-07.cs.wisc.edu/128.105.112.50 to 0.0.0.0:10020 failed on connection exception: java.net.ConnectException: Connection refused; For more details see:  http://wiki.apache.org/hadoop/ConnectionRefused
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at org.apache.hadoop.net.NetUtils.wrapWithMessage(NetUtils.java:783)
+	at org.apache.hadoop.net.NetUtils.wrapException(NetUtils.java:730)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1415)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1364)
+	at org.apache.hadoop.ipc.ProtobufRpcEngine$Invoker.invoke(ProtobufRpcEngine.java:206)
+	at com.sun.proxy.$Proxy13.getTaskAttemptCompletionEvents(Unknown Source)
+	at org.apache.hadoop.mapreduce.v2.api.impl.pb.client.MRClientProtocolPBClientImpl.getTaskAttemptCompletionEvents(MRClientProtocolPBClientImpl.java:177)
+	at sun.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.hadoop.mapred.ClientServiceDelegate.invoke(ClientServiceDelegate.java:320)
+	... 16 more
+Caused by: java.net.ConnectException: Connection refused
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method)
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:739)
+	at org.apache.hadoop.net.SocketIOWithTimeout.connect(SocketIOWithTimeout.java:206)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:529)
+	at org.apache.hadoop.net.NetUtils.connect(NetUtils.java:493)
+	at org.apache.hadoop.ipc.Client$Connection.setupConnection(Client.java:606)
+	at org.apache.hadoop.ipc.Client$Connection.setupIOstreams(Client.java:700)
+	at org.apache.hadoop.ipc.Client$Connection.access$2800(Client.java:367)
+	at org.apache.hadoop.ipc.Client.getConnection(Client.java:1463)
+	at org.apache.hadoop.ipc.Client.call(Client.java:1382)
+	... 24 more

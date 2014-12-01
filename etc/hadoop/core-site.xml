@@ -19,6 +19,6 @@
 <configuration>
 <property>
 <name>fs.defaultFS</name>
-<value>hdfs://macaroni-05.cs.wisc.edu:23333/</value>
+<value>hdfs://adelie--05.cs.wisc.edu:23333/</value>
 </property>
 </configuration>

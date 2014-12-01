@@ -1,0 +1,212 @@
+14/11/30 20:59:19 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+14/11/30 20:59:19 INFO client.RMProxy: Connecting to ResourceManager at adelie-05.cs.wisc.edu/128.105.112.48:8032
+14/11/30 20:59:20 WARN mapreduce.JobSubmitter: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+14/11/30 20:59:20 INFO input.FileInputFormat: Total input paths to process : 4
+14/11/30 20:59:20 INFO mapreduce.JobSubmitter: number of splits:93
+14/11/30 20:59:21 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1417402452060_0001
+14/11/30 20:59:21 INFO impl.YarnClientImpl: Submitted application application_1417402452060_0001
+14/11/30 20:59:21 INFO mapreduce.Job: The url to track the job: http://adelie-05.cs.wisc.edu:8088/proxy/application_1417402452060_0001/
+14/11/30 20:59:21 INFO mapreduce.Job: Running job: job_1417402452060_0001
+14/11/30 20:59:25 INFO mapreduce.Job: Job job_1417402452060_0001 running in uber mode : false
+14/11/30 20:59:25 INFO mapreduce.Job:  map 0% reduce 0%
+14/11/30 20:59:34 INFO mapreduce.Job:  map 2% reduce 0%
+14/11/30 20:59:37 INFO mapreduce.Job:  map 8% reduce 0%
+14/11/30 20:59:38 INFO mapreduce.Job:  map 17% reduce 0%
+14/11/30 20:59:39 INFO mapreduce.Job:  map 30% reduce 0%
+14/11/30 20:59:40 INFO mapreduce.Job:  map 42% reduce 0%
+14/11/30 20:59:41 INFO mapreduce.Job:  map 53% reduce 0%
+14/11/30 20:59:42 INFO mapreduce.Job:  map 59% reduce 0%
+14/11/30 20:59:43 INFO mapreduce.Job:  map 63% reduce 0%
+14/11/30 20:59:44 INFO mapreduce.Job:  map 70% reduce 0%
+14/11/30 20:59:45 INFO mapreduce.Job:  map 76% reduce 0%
+14/11/30 20:59:46 INFO mapreduce.Job:  map 81% reduce 0%
+14/11/30 20:59:47 INFO mapreduce.Job:  map 85% reduce 21%
+14/11/30 20:59:48 INFO mapreduce.Job:  map 88% reduce 21%
+14/11/30 20:59:49 INFO mapreduce.Job:  map 90% reduce 21%
+14/11/30 20:59:50 INFO mapreduce.Job:  map 93% reduce 26%
+14/11/30 20:59:53 INFO mapreduce.Job:  map 94% reduce 30%
+14/11/30 20:59:56 INFO mapreduce.Job:  map 94% reduce 31%
+14/11/30 21:00:12 INFO mapreduce.Job:  map 95% reduce 31%
+14/11/30 21:00:32 INFO mapreduce.Job:  map 96% reduce 31%
+14/11/30 21:00:45 INFO mapreduce.Job:  map 97% reduce 31%
+14/11/30 21:00:53 INFO mapreduce.Job:  map 97% reduce 32%
+14/11/30 21:00:56 INFO mapreduce.Job:  map 98% reduce 32%
+14/11/30 21:01:07 INFO mapreduce.Job:  map 99% reduce 32%
+14/11/30 21:01:11 INFO mapreduce.Job:  map 99% reduce 33%
+14/11/30 21:01:14 INFO mapreduce.Job:  map 100% reduce 33%
+14/11/30 21:01:16 INFO mapreduce.Job:  map 100% reduce 100%
+14/11/30 21:01:18 INFO mapreduce.Job: Job job_1417402452060_0001 completed successfully
+14/11/30 21:01:18 INFO mapreduce.Job: Counters: 160
+	File System Counters
+		FILE: Number of bytes read=71678
+		FILE: Number of bytes written=9239094
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=12241334131
+		HDFS: Number of bytes written=6584
+		HDFS: Number of read operations=282
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+	Job Counters 
+		Killed map tasks=5
+		Launched map tasks=98
+		Launched reduce tasks=1
+		Data-local map tasks=70
+		Rack-local map tasks=28
+		Total time spent by all maps in occupied slots (ms)=2212720
+		Total time spent by all reduces in occupied slots (ms)=97424
+		Total time spent by all map tasks (ms)=2212720
+		Total time spent by all reduce tasks (ms)=97424
+		Total vcore-seconds taken by all map tasks=2212720
+		Total vcore-seconds taken by all reduce tasks=97424
+		Total megabyte-seconds taken by all map tasks=2265825280
+		Total megabyte-seconds taken by all reduce tasks=99762176
+	Map-Reduce Framework
+		Map input records=99297257
+		Map output records=623250
+		Map output bytes=13606760
+		Map output materialized bytes=72230
+		Input split bytes=12883
+		Combine input records=623250
+		Combine output records=2918
+		Reduce input groups=293
+		Reduce shuffle bytes=72230
+		Reduce input records=2918
+		Reduce output records=293
+		Spilled Records=5836
+		Shuffled Maps =93
+		Failed Shuffles=0
+		Merged Map outputs=93
+		GC time elapsed (ms)=27529
+		CPU time spent (ms)=529750
+		Physical memory (bytes) snapshot=24985018368
+		Virtual memory (bytes) snapshot=90465165312
+		Total committed heap usage (bytes)=19315818496
+	MapCount
+		adelie-02.cs.wisc.edu=10094457
+		adelie-06.cs.wisc.edu=19720234
+		galapagos-04.cs.wisc.edu=10826508
+		galapagos-06.cs.wisc.edu=13114758
+		galapagos-09.cs.wisc.edu=17271809
+		galapagos-11.cs.wisc.edu=16961276
+		galapagos-13.cs.wisc.edu=14083356
+		galapagos-16.cs.wisc.edu=11286176
+		galapagos-17.cs.wisc.edu=11393228
+		galapagos-19.cs.wisc.edu=10830566
+		galapagos-22.cs.wisc.edu=11085524
+		galapagos-24.cs.wisc.edu=2305154
+		galapagos-27.cs.wisc.edu=6436533
+		galapagos-29.cs.wisc.edu=8617048
+		galapagos-31.cs.wisc.edu=2131258
+		galapagos-37.cs.wisc.edu=16932428
+		macaroni-09.cs.wisc.edu=15504162
+	MapDuration
+		adelie-02.cs.wisc.edu=20132
+		adelie-06.cs.wisc.edu=45478
+		galapagos-04.cs.wisc.edu=21366
+		galapagos-06.cs.wisc.edu=27027
+		galapagos-09.cs.wisc.edu=45856
+		galapagos-11.cs.wisc.edu=36571
+		galapagos-13.cs.wisc.edu=30756
+		galapagos-16.cs.wisc.edu=22691
+		galapagos-17.cs.wisc.edu=23341
+		galapagos-19.cs.wisc.edu=19609
+		galapagos-22.cs.wisc.edu=20399
+		galapagos-24.cs.wisc.edu=3086
+		galapagos-27.cs.wisc.edu=11054
+		galapagos-29.cs.wisc.edu=14419
+		galapagos-31.cs.wisc.edu=3007
+		galapagos-37.cs.wisc.edu=44704
+		macaroni-09.cs.wisc.edu=35087
+	MapLineCount
+		adelie-02.cs.wisc.edu=5047229
+		adelie-06.cs.wisc.edu=9860116
+		galapagos-04.cs.wisc.edu=5413261
+		galapagos-06.cs.wisc.edu=6557379
+		galapagos-09.cs.wisc.edu=8635913
+		galapagos-11.cs.wisc.edu=8480638
+		galapagos-13.cs.wisc.edu=7041676
+		galapagos-16.cs.wisc.edu=5643088
+		galapagos-17.cs.wisc.edu=5696614
+		galapagos-19.cs.wisc.edu=5415283
+		galapagos-22.cs.wisc.edu=5542762
+		galapagos-24.cs.wisc.edu=1152577
+		galapagos-27.cs.wisc.edu=3218267
+		galapagos-29.cs.wisc.edu=4308524
+		galapagos-31.cs.wisc.edu=1065629
+		galapagos-37.cs.wisc.edu=8466217
+		macaroni-09.cs.wisc.edu=7752081
+	ReduceCount
+		adelie-02.cs.wisc.edu=144
+		adelie-06.cs.wisc.edu=319
+		galapagos-04.cs.wisc.edu=447
+		galapagos-06.cs.wisc.edu=159
+		galapagos-09.cs.wisc.edu=254
+		galapagos-11.cs.wisc.edu=243
+		galapagos-13.cs.wisc.edu=262
+		galapagos-16.cs.wisc.edu=120
+		galapagos-17.cs.wisc.edu=121
+		galapagos-19.cs.wisc.edu=149
+		galapagos-22.cs.wisc.edu=149
+		galapagos-24.cs.wisc.edu=26
+		galapagos-27.cs.wisc.edu=72
+		galapagos-29.cs.wisc.edu=181
+		galapagos-31.cs.wisc.edu=24
+		galapagos-37.cs.wisc.edu=337
+		macaroni-09.cs.wisc.edu=204
+	ReduceDuration
+		adelie-02.cs.wisc.edu=242
+		adelie-06.cs.wisc.edu=488
+		galapagos-04.cs.wisc.edu=351
+		galapagos-06.cs.wisc.edu=329
+		galapagos-09.cs.wisc.edu=553
+		galapagos-11.cs.wisc.edu=421
+		galapagos-13.cs.wisc.edu=359
+		galapagos-16.cs.wisc.edu=262
+		galapagos-17.cs.wisc.edu=303
+		galapagos-19.cs.wisc.edu=259
+		galapagos-22.cs.wisc.edu=253
+		galapagos-24.cs.wisc.edu=35
+		galapagos-27.cs.wisc.edu=121
+		galapagos-29.cs.wisc.edu=174
+		galapagos-31.cs.wisc.edu=37
+		galapagos-37.cs.wisc.edu=468
+		macaroni-09.cs.wisc.edu=395
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	TotalTechWordCount
+		Fri Nov 14=22275
+		Fri Nov 21=56119
+		Mon Nov 17=2892
+		Mon Nov 24=101281
+		Sat Nov 15=528
+		Sat Nov 22=103353
+		Sun Nov 23=106799
+		Thu Nov 13=59682
+		Thu Nov 20=16258
+		Tue Nov 18=43777
+		Tue Nov 25=92967
+		Wed Nov 19=17319
+	TotalWordCount
+		Fri Nov 14=63884723
+		Fri Nov 21=188674779
+		Mon Nov 17=7838438
+		Mon Nov 24=349935981
+		Sat Nov 15=1854964
+		Sat Nov 22=331033618
+		Sun Nov 23=343899429
+		Thu Nov 13=178321131
+		Thu Nov 20=58215162
+		Tue Nov 18=138238376
+		Tue Nov 25=277807648
+		Wed Nov 19=54568860
+	File Input Format Counters 
+		Bytes Read=12241321248
+	File Output Format Counters 
+		Bytes Written=6584
