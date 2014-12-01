@@ -98,7 +98,7 @@ def stop_slaves():
 
 @roles('slave', 'master')
 def start_dstat(count=COUNT):
-    check_call("ssh -f %s nohup ~/dstat -ta --output ~/dstats/%s.csv 1 %i >& /dev/null < /dev/null &"
+    check_call("ssh -f %s nohup ~/dstat -ta --noheaders --noupdate --output ~/dstats/%s.csv 1 %i >& /dev/null < /dev/null &"
         % (env.host_string, env.host_string, count), shell=True)
 
 

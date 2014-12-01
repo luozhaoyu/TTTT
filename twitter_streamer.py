@@ -1,3 +1,4 @@
+import os
 from multiprocessing import Pool, current_process
 from tweepy.streaming import StreamListener
 from tweepy import OAuthHandler
@@ -14,7 +15,7 @@ class StdOutListener(StreamListener):
     #    streamG = streamx
     def __init__(self, output_file):
         StreamListener.__init__(self)
-        self.output_file = "%s.%s.txt" % (output_file, datetime.date.today().isoformat())
+        self.output_file = os.path.join("/scratch/data/", output_file)
         self.tmpData = ""
         self.tweet_count = 0
 
@@ -58,7 +59,8 @@ class StdOutListener(StreamListener):
             if self.tweet_count % 1000 == 0:
                 print str(self.tweet_count)
                 #streamG.dissconnect()
-                with open(self.output_file, 'a') as f:
+                output_file = "%s.%s.txt" % (self.output_file, datetime.date.today().isoformat())
+                with open(output_file, 'a') as f:
                     f.write(self.tmpData)
                 print "writing and flushing data"
                 self.tmpData = ""
