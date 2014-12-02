@@ -1,5 +1,6 @@
 echo running with config$1.py nodes
-cp -f config$1.py config.py
+cp -f configHeader config.py
+cat config$1.py >>config.py
 echo writing to slaves file...
 writeSlaves
 echo written.

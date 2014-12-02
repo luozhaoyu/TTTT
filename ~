@@ -1,3 +1,5 @@
+UPLOAD_FOLDER="~/tweets/test"
+COUNT = 3600
 MACHINES = {
     'master': ['adelie-05'],
     'slave': [

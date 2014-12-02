@@ -1,5 +1,5 @@
-14/12/01 21:10:47 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
-14/12/01 21:10:47 INFO client.RMProxy: Connecting to ResourceManager at adelie-05.cs.wisc.edu/128.105.112.48:8032
+14/12/01 21:10:44 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+14/12/01 21:10:45 INFO client.RMProxy: Connecting to ResourceManager at adelie-05.cs.wisc.edu/128.105.112.48:8032
 Exception in thread "main" org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory hdfs://adelie-05.cs.wisc.edu:23333/cs736/output already exists
 	at org.apache.hadoop.mapreduce.lib.output.FileOutputFormat.checkOutputSpecs(FileOutputFormat.java:146)
 	at org.apache.hadoop.mapreduce.JobSubmitter.checkSpecs(JobSubmitter.java:458)

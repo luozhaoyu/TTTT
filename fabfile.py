@@ -55,6 +55,21 @@ def copy():
     run("cp -f ~/hadoop/etc/hadoop/* /tmp/dfs/hadoop/etc/hadoop/")
 
 
+
+@roles('master')
+def run_test():
+   nodeCount = len(MACHINES['slave'])
+   tttt="~/CS736/TTTT/TTTT2/"
+   run("cd "+tttt+";config "+str(nodeCount))
+   execute(start)
+   run("/tmp/dfs/hadoop/bin/hadoop dfsadmin -safemode leave")
+   execute(upload)
+   run("cd "+tttt+";runHadoop "+str(nodeCount))
+   outputFile ="results"+str(nodeCount)+"Nodes"
+   run("cd "+tttt+";mv "+outputFile+" "+outputFile+"FR")
+   run("cd "+tttt+";runHadoop "+str(nodeCount))
+   run("cd "+tttt+";hdfsremove");
+   execute(stop);
 @parallel
 def init():
     execute(init_master)
