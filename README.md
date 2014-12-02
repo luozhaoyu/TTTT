@@ -91,6 +91,9 @@ Check cluster status
 * `fab start_dstat`: start dstat, which would last for 3600 seconds (configurable)
 * `fab stop_dstat`
 
+##### Copy new configurations
+* `fab copy`
+
 ##### Add nodes
 
 Assuming `macaroni-01` is the only slave currently, and we will add *macaroni-02 macaroni-03*.

@@ -22,4 +22,8 @@
     <value>yarn</value>
 </property>
 
+<property>
+    <name>yarn.app.mapreduce.client.max-retries</name>
+    <value>9</value>
+</property>
 </configuration>

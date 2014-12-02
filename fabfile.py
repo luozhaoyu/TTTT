@@ -48,11 +48,12 @@ def init_slaves():
     run("mkdir -p /tmp/dfs/data")
     run("cp -r ~/hadoop /tmp/dfs/")
 
+
 @roles('slave','master')
 @parallel
-def copy_hdfs_site_slave():
-    run("rm -f /tmp/dfs/hadoop/etc/hadoop/hdfs-site.xml")
-    run("cp -rf ~/hadoop/etc/hadoop/hdfs-site.xml /tmp/dfs/hadoop/etc/hadoop/.")
+def copy():
+    run("cp -f ~/hadoop/etc/hadoop/* /tmp/dfs/hadoop/etc/hadoop/")
+
 
 @parallel
 def init():
@@ -60,9 +61,6 @@ def init():
     execute(init_slaves)
     with settings(warn_only=True):
         local("mkdir ~/dstats")
-
-def copyhdfs():
-   execute(copy_hdfs_site_slave)
 
 
 @parallel

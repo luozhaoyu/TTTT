@@ -25,4 +25,9 @@
     <value>adelie-05.cs.wisc.edu</value>
 </property>
 
+<property>
+    <name>mapreduce.jobhistory.address</name>
+    <value>adelie-05.cs.wisc.edu</value>
+</property>
+
 </configuration>
