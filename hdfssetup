@@ -4,7 +4,7 @@ echo $( date +%T )
 for f in ~/tweets/test/*_FIXED*
    do
        echo "adding $f"
-       ~/hadoop/bin/hdfs dfs -put $f /cs736/input
+       ~/hadoop/bin/hdfs dfs -put $f /cs736/input 
    done
 echo $( date +%T ) >>hdfsSetupTime$1
 echo $( date +%T )

@@ -1,3 +1,4 @@
+COUNT = 3600
 MACHINES = {
     'master': ['galapagos-25'],
     'slave': [

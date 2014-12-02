@@ -8,17 +8,19 @@
 """
 from subprocess import check_call
 from fabric.api import run, env, roles, execute
-from fabric.api import local, settings
+from fabric.api import local, settings, parallel
 
 
 try:
     from config import MACHINES
     from config import COUNT
+    from password import PASSWORD
 except ImportError as e:
     print "You should cp config.py.sample config.py, and modify it then"
     raise e
 
 env.roledefs = MACHINES
+env.password=PASSWORD
 #env.roledefs = {
 #    'master': ['adelie-05'],
 #    'slave': [
@@ -43,6 +45,12 @@ def init_slaves():
     run("mkdir -p /tmp/dfs/data")
     run("cp -r ~/hadoop /tmp/dfs/")
 
+@roles('slave','master')
+@parallel
+def copy_hdfs_site_slave():
+    run("rm -f /tmp/dfs/hadoop/etc/hadoop/hdfs-site.xml")
+    run("cp -rf ~/hadoop/etc/hadoop/hdfs-site.xml /tmp/dfs/hadoop/etc/hadoop/.")
+
 
 #if the master is also a slave - wont this negate the init_master?
 def init():
@@ -50,6 +58,9 @@ def init():
     execute(init_slaves)
     with settings(warn_only=True):
         local("mkdir ~/dstats")
+
+def copyhdfs():
+   execute(copy_hdfs_site_slave)
 
 
 def start():
@@ -86,24 +97,28 @@ def stop_master():
 
 
 @roles('slave')
+@parallel
 def start_slaves():
     run("/tmp/dfs/hadoop/sbin/hadoop-daemon.sh --config /tmp/dfs/hadoop/etc/hadoop/ start datanode")
     run("/tmp/dfs/hadoop/sbin/yarn-daemon.sh --config /tmp/dfs/hadoop/etc/hadoop/ start nodemanager")
 
 
 @roles('slave')
+@parallel
 def stop_slaves():
     run("/tmp/dfs/hadoop/sbin/hadoop-daemon.sh --config /tmp/dfs/hadoop/etc/hadoop/ stop datanode")
     run("/tmp/dfs/hadoop/sbin/yarn-daemon.sh --config /tmp/dfs/hadoop/etc/hadoop/ stop nodemanager")
 
 
 @roles('slave', 'master')
+@parallel
 def start_dstat(count=COUNT):
     check_call("ssh -f %s nohup ~/dstat -ta --noheaders --noupdate --output ~/dstats/%s.csv 1 %i >& /dev/null < /dev/null &"
         % (env.host_string, env.host_string, count), shell=True)
 
 
 @roles('slave', 'master')
+@parallel
 def stop_dstat(count=COUNT):
     run("pkill -f dstat", warn_only=True)
 
