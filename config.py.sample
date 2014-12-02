@@ -1,3 +1,4 @@
+UPLOAD_FOLDER = '~/public'
 COUNT = 3600
 MACHINES = {
     'master': ['macaroni-05'],

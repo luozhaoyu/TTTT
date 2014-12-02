@@ -9,7 +9,7 @@ Configuration
 1. install virtual environments
 
         virtualenv ~/venv
-        pip install tweepy fabric
+        pip install tweepy fabric matplotlib
         source ~/venv/bin/activate
 - install hadoop
 

@@ -6,6 +6,8 @@
 
     A brief description goes here.
 """
+import os
+import hashlib
 from subprocess import check_call
 from fabric.api import run, env, roles, execute
 from fabric.api import local, settings, parallel
@@ -14,13 +16,14 @@ from fabric.api import local, settings, parallel
 try:
     from config import MACHINES
     from config import COUNT
+    from config import UPLOAD_FOLDER
     from password import PASSWORD
 except ImportError as e:
     print "You should cp config.py.sample config.py, and modify it then"
     raise e
 
+env.password = PASSWORD
 env.roledefs = MACHINES
-env.password=PASSWORD
 #env.roledefs = {
 #    'master': ['adelie-05'],
 #    'slave': [
@@ -51,8 +54,7 @@ def copy_hdfs_site_slave():
     run("rm -f /tmp/dfs/hadoop/etc/hadoop/hdfs-site.xml")
     run("cp -rf ~/hadoop/etc/hadoop/hdfs-site.xml /tmp/dfs/hadoop/etc/hadoop/.")
 
-
-#if the master is also a slave - wont this negate the init_master?
+@parallel
 def init():
     execute(init_master)
     execute(init_slaves)
@@ -63,18 +65,21 @@ def copyhdfs():
    execute(copy_hdfs_site_slave)
 
 
+@parallel
 def start():
     execute(start_master)
     execute(start_slaves)
     execute(start_dstat)
 
 
+@parallel
 def stop():
     execute(stop_dstat)
     execute(stop_slaves)
     execute(stop_master)
 
 
+@parallel
 def restart():
     execute(stop)
     execute(start)
@@ -121,6 +126,18 @@ def start_dstat(count=COUNT):
 @parallel
 def stop_dstat(count=COUNT):
     run("pkill -f dstat", warn_only=True)
+
+
+@roles('slave')
+@parallel
+def upload(upload_folder=UPLOAD_FOLDER):
+    total_servers = len(env.roledefs['slave'])
+    pit = env.roledefs['slave'].index(env.host_string)
+    folder_path = os.path.expanduser(upload_folder)
+    for i in os.listdir(folder_path):
+        if int(hashlib.sha224(i).hexdigest(), 16) % total_servers == pit:
+            file_path = os.path.join(folder_path, i)
+            run("/tmp/dfs/hadoop/bin/hdfs dfs -put %s /cs736/input/" % file_path, warn_only=True)
 
 
 def main(argv):
