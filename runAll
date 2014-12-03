@@ -1,0 +1,8 @@
+echo Running all tests
+counts=( 8 16 32 47 )
+for i in "${counts[@]}" 
+do
+   echo running nodeCount $i
+   config $i
+   fab run_test
+done

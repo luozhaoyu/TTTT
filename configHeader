@@ -1,0 +1,2 @@
+UPLOAD_FOLDER="~/tweets/temp"
+COUNT = 3600

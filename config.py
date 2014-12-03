@@ -1,3 +1,4 @@
+UPLOAD_FOLDER="~/tweets/temp"
 COUNT = 3600
 MACHINES = {
     'master': ['adelie-05'],
@@ -49,13 +50,13 @@ MACHINES = {
         #'galapagos-29',
         #'galapagos-30',
         #'galapagos-31',
-        'galapagos-32',
-        'galapagos-33',
-        'galapagos-34',
+        #'galapagos-32',
+        #'galapagos-33',
+        #'galapagos-34',
         #'galapagos-35',
-        'galapagos-36',
-        'galapagos-37',
-        'galapagos-38',
+        #'galapagos-36',
+        #'galapagos-37',
+        #'galapagos-38',
         'galapagos-39',
         'galapagos-40',
     ]
