@@ -82,13 +82,13 @@ class DstatPlot(object):
         return self.fig.savefig(file_path)
 
 
-def plot_dstat(start_time=None, end_time=None):
+def plot_dstat(folder='~/dstats', start_time=None, end_time=None):
     dp = DstatPlot('send', title="Dstat Of Network Sends Traffic During Hadoop")
-    dp.plot_folder(start_time=start_time, end_time=end_time)
+    dp.plot_folder(folder, start_time=start_time, end_time=end_time)
     dp.savefig('dstat_send.png')
     dp = None
     dp = DstatPlot('recv', title="Dstat Of Network Recvs Traffic During Hadoop")
-    dp.plot_folder(start_time=start_time, end_time=end_time)
+    dp.plot_folder(folder, start_time=start_time, end_time=end_time)
     dp.savefig('dstat_recv.png')
     return dp
 
@@ -237,12 +237,12 @@ def main(argv):
     args = parser.parse_args()
     fig = None
     if args.a:
-        plot_dstat(args.st, args.et)
+        plot_dstat(start_time=args.st, end_time=args.et)
         plot_variance(args.folder)
         plot_time(args.folder)
         plot_single(args.folder)
     elif args.d:
-        fig = plot_dstat(args.st, args.et).fig
+        fig = plot_dstat(args.folder, args.st, args.et).fig
     elif args.v:
         fig = plot_variance(args.folder)
     elif args.t:
