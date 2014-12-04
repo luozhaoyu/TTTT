@@ -164,13 +164,14 @@ def plot_single(folder_path):
             sp = fig.add_subplot(len(d), 1, 1+i)
             sp.set_title("%s of %i hosts" % (k, n))
             sp.set_xlabel('hosts names')
-            sp.set_ylabel('milliseconds')
+            sp.set_ylabel('counts')
             x = [i.split('.')[0].replace('galapagos', 'g').replace('macaroni', 'm',).replace('adelie', 'a') for i in d[n][k].keys()]
             y = d[n][k].values()
             sp.bar(numpy.arange(len(x)), y)
             sp.set_xticks(numpy.arange(len(x)))
             sp.set_xticklabels(x)
-        fig.subplots_adjust(hspace=0.5)
+            sp.ticklabel_format(style='plain', axis='y')
+        fig.subplots_adjust(hspace=0.4)
         fig.savefig('%s_by_nodes.png' % k)
 
 
