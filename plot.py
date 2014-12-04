@@ -11,6 +11,8 @@ import datetime
 import random
 import time
 import re
+import csv
+import StringIO
 
 import argparse
 
@@ -20,47 +22,67 @@ from matplotlib import pyplot
 
 class DstatPlot(object):
     def __init__(self):
-        self.fig = pyplot.figure()
+        self.fig = pyplot.figure(figsize=(10, 12))
         self.sp = self.fig.add_subplot(111)
-        self.sp.set_title('Bandwidth')
+        self.sp.set_title('Machine Bandwidths during MapReduce as time elapsed')
         self.sp.set_xlabel('time elapsed')
         self.sp.set_ylabel('bytes/s')
-        self.linestyles = ['-', '--', '-.', ':',
-            '.', ',', 'o', 'v', '^', '<', '>', '1', '2', '3', '4', 's', 'p',
-            '*', 'h', 'H', '+', 'x', 'D', 'd', '|', '_']
+        self.linestyles = [
+            '-', '--', '-.', ':',
+            #'.', ',', 'o', 'v', '^', '<', '>', '1', '2', '3', '4', 's', 'p',
+            #'*', 'h', 'H', '+', 'x', 'D', 'd', '|', '_'
+            ]
         random.shuffle(self.linestyles)
-        dstat_names = ["time","usr","sys","idl","wai","stl","read","writ","recv","send","in","out","int","csw"]
+        dstat_names = ["time","usr","sys","idl","wai","hiq", "siq", "read","writ","recv","send","in","out","int","csw"]
         dstat_type = ["S14"]
-        dstat_type.extend([numpy.float] * 7)
-        dstat_type.extend([numpy.int] * 6)
+        dstat_type.extend([numpy.float] * 14)
+        #dstat_type.extend([numpy.int] * 6)
         self.dtype = zip(dstat_names, dstat_type)
 
-    def plot_folder(self, csv_folder="~/dstats/"):
+    def plot_folder(self, csv_folder="~/dstats/", start_time=None, end_time=None):
         csv_path = os.path.expanduser(csv_folder)
         for i in os.listdir(csv_path):
-            self.plot_file(os.path.join(csv_path, i))
+            self.plot_file(os.path.join(csv_path, i), start_time, end_time)
 
-    def plot_file(self, csv_file="~/dstats/dstat.csv"):
+    def plot_file(self, csv_file="~/dstats/dstat.csv", start_time=None, end_time=None):
         csv_path = os.path.expanduser(csv_file)
         host = os.path.basename(csv_path).split('.')[0]
-        data = numpy.genfromtxt(csv_path, self.dtype, delimiter=",", skip_header=6)
-        start = time.mktime(datetime.datetime.strptime(data['time'][0], "%d-%m %H:%M:%S").replace(year=2014).timetuple())
-        relative_timestamp = [time.mktime(datetime.datetime.strptime(x, "%d-%m %H:%M:%S").replace(year=2014).timetuple()) - start for x in data['time']]
-        ls = self.linestyles.pop()
-        self.sp.plot(relative_timestamp, data['send'], ls=ls, label="%s:send" % host)
-        self.sp.plot(relative_timestamp, data['recv'], ls=ls, label="%s:recv" % host)
+        with open(csv_path, 'r') as f:
+            raw_data = f.read()
+        cut = -1
+        for i in range(6):
+            cut = raw_data.index('\n', cut+1)
+        raw_data = raw_data[cut+1:]
+        csv_buffer = StringIO.StringIO(raw_data)
+        reader = csv.DictReader(csv_buffer, delimiter=',', quotechar='"')
+        sends = []
+        recvs = []
+        for r in reader:
+            today_time = r['time'].split(' ')[-1]
+            if start_time and (today_time < start_time or today_time > end_time):
+                continue
+            else:
+                sends.append(float(r['send']))
+                recvs.append(float(r['recv']))
+        relative_timestamp = range(len(sends))
+        ls = self.linestyles[random.randint(0, len(self.linestyles)-1)]
+        self.sp.plot(relative_timestamp, sends, ls=ls, label="%s:send" % host)
+        self.sp.plot(relative_timestamp, recvs, ls=ls, label="%s:recv" % host)
+        self.sp.set_yscale('log')
 
     def show(self):
         self.sp.legend()
         return self.fig.show()
 
     def savefig(self, file_path):
+        self.sp.legend()
         return self.fig.savefig(file_path)
 
 
-def foo():
+def plot_dstat(start_time=None, end_time=None):
     dp = DstatPlot()
-    dp.plot_folder()
+    dp.plot_folder(start_time=start_time, end_time=end_time)
+    dp.savefig('dstat.png')
     return dp
 
 
@@ -85,10 +107,12 @@ def parse_folder(folder_path):
     folder_path = os.path.expanduser(folder_path)
     d = {}
     for i in os.listdir(folder_path):
-        nodes = int(re.search(r'\d+', i).group())
-        p = parse(os.path.join(folder_path, i))
-        if p:
-            d[nodes] = p
+        match = re.search(r'\d+', i)
+        if match:
+            nodes = int(match.group())
+            p = parse(os.path.join(folder_path, i))
+            if p:
+                d[nodes] = p
     return d
 
 
@@ -100,7 +124,7 @@ def plot_variance(folder_path):
     titles = ['MapCount', 'ReduceCount', 'MapDuration', 'ReduceDuration']
     for t in titles:
         ys.append([numpy.std(d[n][t].values()) for n in x])
-    fig = pyplot.figure()
+    fig = pyplot.figure(figsize=(16, 12))
     for i in range(len(titles)):
         y = ys[i]
         title = titles[i]
@@ -117,10 +141,10 @@ def plot_variance(folder_path):
 
 def plot_single(folder_path):
     d = parse_folder(folder_path)
-    fig = pyplot.figure()
+    fig = pyplot.figure(figsize=(20, 16))
     for i, n in enumerate(d.keys()):
         sp = fig.add_subplot(len(d), 1, 1 + i)
-        sp.set_title("%i hosts" % n)
+        sp.set_title("MapDuration of %i hosts" % n)
         sp.set_xlabel('hosts names')
         sp.set_ylabel('milliseconds')
         x = [i.split('.')[0] for i in d[n]['MapDuration'].keys()]
@@ -128,6 +152,7 @@ def plot_single(folder_path):
         sp.bar(numpy.arange(len(x)), y)
         sp.set_xticks(numpy.arange(len(x)))
         sp.set_xticklabels(x)
+    fig.subplots_adjust(hspace=0.5)
     fig.savefig('single.png')
     return fig
 
@@ -140,8 +165,8 @@ def plot_time(folder_path):
     reduce_times = []
     total_times = []
     for i in x:
-        mt = d[i]['Job Counters']['Total time spent by all map tasks (ms)']
-        rt = d[i]['Job Counters']['Total time spent by all reduce tasks (ms)']
+        mt = d[i]['Job Counters']['Total time spent by all map tasks (ms)'] / 1000
+        rt = d[i]['Job Counters']['Total time spent by all reduce tasks (ms)'] / 1000
         map_times.append(mt)
         reduce_times.append(rt)
         total_times.append(mt+rt)
@@ -149,24 +174,25 @@ def plot_time(folder_path):
     sp = fig.add_subplot(3, 1, 1)
     sp.set_title("Map Time Cost")
     sp.set_xlabel('number of nodes')
-    sp.set_ylabel('milliseconds')
+    sp.set_ylabel('seconds')
     sp.plot(numpy.arange(len(x)), map_times)
     sp.set_xticks(numpy.arange(len(x)))
     sp.set_xticklabels(x)
     sp1 = fig.add_subplot(3, 1, 2)
     sp1.set_title("Reduce Time Cost")
     sp1.set_xlabel('number of nodes')
-    sp1.set_ylabel('milliseconds')
+    sp1.set_ylabel('seconds')
     sp1.plot(numpy.arange(len(x)), reduce_times)
     sp1.set_xticks(numpy.arange(len(x)))
     sp1.set_xticklabels(x)
     sp2 = fig.add_subplot(3, 1, 3)
     sp2.set_title("Total Time Cost")
     sp2.set_xlabel('number of nodes')
-    sp2.set_ylabel('milliseconds')
+    sp2.set_ylabel('seconds')
     sp2.plot(numpy.arange(len(x)), total_times)
     sp2.set_xticks(numpy.arange(len(x)))
     sp2.set_xticklabels(x)
+    fig.subplots_adjust(hspace=0.7)
     fig.savefig('time.png')
     return fig
 
@@ -177,32 +203,41 @@ def main(argv):
     parser = argparse.ArgumentParser(description="""
         Plots for TTTT""")
     different_actions = parser.add_mutually_exclusive_group()
-    different_actions.add_argument('-d', help='draw from dstat')
+    different_actions.add_argument('-a', help='draw all', action='store_true')
+    different_actions.add_argument('-d', help='draw from dstat', action='store_true')
     different_actions.add_argument('-v', help='plot variance', action='store_true')
     different_actions.add_argument('-t', help='plot time', action='store_true')
     different_actions.add_argument('-s', help='plot each single node time spent', action='store_true')
     different_actions.add_argument('--test', help='', action="store_true")
     parser.add_argument('--file')
     parser.add_argument('--folder', default="./experiments/")
+    parser.add_argument('-st', help='start_time: 21:02:17', default=None)
+    parser.add_argument('-et', help='end_time: 21:04:27', default=None)
     args = parser.parse_args()
-    if args.d:
-        dp = DstatPlot()
-        dp.plot_folder()
-        dp.savefig('dstat.png')
-        dp.show()
+    fig = None
+    if args.a:
+        plot_dstat(args.st, args.et)
+        plot_variance(args.folder)
+        plot_time(args.folder)
+        plot_single(args.folder)
+    elif args.d:
+        fig = plot_dstat(args.st, args.et).fig
     elif args.v:
-        plot_variance(args.folder).show()
+        fig = plot_variance(args.folder)
     elif args.t:
-        plot_time(args.folder).show()
+        fig = plot_time(args.folder)
     elif args.s:
-        plot_single(args.folder).show()
+        fig = plot_single(args.folder)
     elif args.test:
         if args.file:
-            pprint.pprint(parse(args.file))
+            dp = DstatPlot()
+            dp.plot_file(args.file)
         else:
             pprint.pprint(plot_variance(args.folder))
-    while True:
-        time.sleep(1)
+    if fig:
+        fig.show()
+        while True:
+            time.sleep(1)
 
 
 if __name__ == '__main__':
